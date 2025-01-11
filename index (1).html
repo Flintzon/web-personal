@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flintzon Web</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eaffea;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(90deg, #4caf50, #81c784, #4caf50);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        #profile {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 10px 15px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        #profile:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        #profile img {
+            border-radius: 50%;
+            margin-right: 10px;
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        #profile img:hover {
+            transform: scale(1.1);
+        }
+
+        #profile span {
+            color: white;
+            font-size: 1em;
+            font-weight: bold;
+            vertical-align: middle;
+            transition: color 0.3s ease;
+        }
+
+        #profile:hover span {
+            color: #81c784;
+        }
+
+        #product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #product-list div {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #product-list div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #product-list img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #388e3c;
+        }
+
+        #cart {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #cart h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #4caf50;
+            text-align: center;
+        }
+
+        #cart-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #cart-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        #cart-list li span {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        #checkout-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        #checkout-button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            #product-list {
+                grid-template-columns: 1fr;
+            }
+
+            #checkout-button {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Flintzon</h1>
+        <p>Tempat terbaik untuk menikmati kuliner sate yang lezat dan menggugah selera(●'◡'●)</p>
+        <div id="profile" onclick="navigateToProfilePage()">
+            <img src="profil flintzon - Copy.png" alt="Profil">
+            <span>profil guee</span>
+        </div>
+    </header>
+
+    <div id="product-list">
+        <!-- Produk akan ditampilkan di sini dengan JavaScript -->
+    </div>
+
+    <div id="cart">
+        <h2>Keranjang Belanja</h2>
+        <ul id="cart-list">
+            <!-- Item keranjang akan ditampilkan di sini -->
+        </ul>
+        <button id="checkout-button">Checkout (WhatsApp)</button>
+    </div>
+
+    <script>
+        const products = [
+            { id: 1, name: "Sate Padang", description: "Enak bat cuy", price: 25000, image: "https://asset.kompas.com/crops/hCbVquVhkYe2q3RO7e6CSH2XUH0=/0x0:1000x667/1200x800/data/photo/2021/03/28/60607a72127cd.jpg" },
+            { id: 2, name: "Sate Madura", description: "Sama aja cuma lebih enak sate padang", price: 23000, image: "https://asset.kompas.com/crops/zekDoITPKTJmLawnP6e3a5E4t50=/3x0:700x465/1200x800/data/photo/2024/07/08/668b52974ead4.jpg" },
+            { id: 3, name: "Sate Ayam", description: "uenak bet rek", price: 20000, image: "https://asset.kompas.com/crops/BJdOTeUCdwHWS6ImI9qDnf3s8nI=/0x0:1000x667/1200x800/data/photo/2023/12/19/6580e31d4d33e.jpeg" }
+        ];
+
+        const cart = [];
+
+        function displayProducts() {
+            const productList = document.getElementById("product-list");
+            products.forEach(product => {
+                const productElement = document.createElement("div");
+                productElement.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" width="150">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <p>Harga: Rp ${product.price.toLocaleString()}</p>
+                    <button onclick="addToCart(${product.id})">Tambah ke Keranjang</button>
+                `;
+                productList.appendChild(productElement);   
+            });
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                cart.push(product);
+                displayCart();
+            }
+        }
+
+        function displayCart() {
+            const cartList = document.getElementById("cart-list");
+            cartList.innerHTML = "";
+            cart.forEach(item => {
+                const cartItem = document.createElement("li");
+                cartItem.innerHTML = `<span>${item.name}</span><span>Rp ${item.price.toLocaleString()}</span>`;
+                cartList.appendChild(cartItem);
+            });
+        }
+
+        document.getElementById("checkout-button").addEventListener("click", function () {
+            if (cart.length === 0) {
+                alert("Keranjang belanja Anda kosong!");
+                return;
+            }
+            const message = createWhatsAppMessage();
+            const phoneNumber = "6281266990566";
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, "_blank");
+        });
+
+        function createWhatsAppMessage() {
+            let message = "Halo, saya ingin membeli produk berikut:\n\n";
+            cart.forEach(item => {
+                message += `${item.name} - Rp ${item.price.toLocaleString()}\n`;
+            });
+            message += `\nTotal: Rp ${cart.reduce((total, item) => total + item.price, 0).toLocaleString()}`;
+            return message;
+        }
+
+        function navigateToProfilePage() {
+            window.location.href = "profil flintzon.html"; // Ganti dengan URL halaman profil Anda
+        }
+
+        // Initial function call to display products on page load
+        displayProducts();
+    </script>
+
+</body>
+</html>
